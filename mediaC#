@@ -1,0 +1,63 @@
+using System;
+
+class Program {
+  public static void Main (string[] args) 
+  {
+    int idade, n1, n2, n3, n4;
+    double med;
+    string turma, name;
+
+    int menu = 0;
+    while (menu != 9)
+    {
+    
+    Console.WriteLine("********MENU********");
+    Console.WriteLine("1 - Calcular média");
+    Console.WriteLine("9 - Sair");
+    Console.WriteLine("--------------------");
+    menu = int.Parse(Console.ReadLine());
+
+      if (menu == 1)
+          {
+          Console.Clear();
+          Console.WriteLine("Digite seu nome: ");
+          name = Console.ReadLine();
+          Console.WriteLine("Digite sua idade: ");
+          idade = int.Parse(Console.ReadLine());
+          Console.WriteLine("Digite sua turma: ");
+          turma = Console.ReadLine();
+      
+          Console.Clear();
+          
+          Console.WriteLine("Digite a primeira nota: ");
+          n1 = int.Parse(Console.ReadLine());
+          Console.WriteLine("Digite a segunda nota: ");
+          n2 = int.Parse(Console.ReadLine());
+          Console.WriteLine("Digite a terceira nota: ");
+          n3 = int.Parse(Console.ReadLine());
+          Console.WriteLine("Digite a quarta nota: ");
+          n4 = int.Parse(Console.ReadLine());
+          
+          Console.Clear();
+          
+          med = (n1 + n2 + n3 + n4) / 4;
+          Console.WriteLine("Aluno: "+ name);
+          Console.WriteLine("Idade: "+ idade);
+          Console.WriteLine("Turma: "+ turma);
+          Console.WriteLine("-------------------------------");
+          Console.WriteLine("Sua média final é: " + med);break;
+          }
+          else if (menu == 9)
+          {
+          Console.Clear();
+          Console.WriteLine("Obrigado por utilizar nosso sistema!");break;
+          }
+          else
+          Console.Clear();
+          Console.WriteLine("Opção inválida, tente novamente");    
+      }
+      
+      
+    Console.ReadLine();
+  }
+}
