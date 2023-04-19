@@ -43,9 +43,9 @@ class Program {
                     if (CursoMatricula == 9)
                     {       
                         Console.Clear();
-                        Console.WriteLine(c4);
+                        Console.WriteLine(c4);return;
                     }
-              
+              }
                 Console.WriteLine("********MENU********");
                 Console.WriteLine("1 - Cursos");
                 Console.WriteLine("2 - Area do aluno");
@@ -72,25 +72,26 @@ class Program {
 
                     if (matricula == v)
                     {
+                      if (CursoMatricula == 1)
                       Console.Clear();
-                      Console.WriteLine("Você já está matriculado em um curso.");break;
+                      Console.WriteLine(name +", Você já está matriculado em um curso");break;
                     }  
                   
                     else if (MenuCursos == 1)
                     {
-                        Console.WriteLine("Prova para Técnico em Informática agendada"); break;
+                        Console.WriteLine(name +", Prova para Técnico em Informática agendada"); break;
                     }
                     else if (MenuCursos == 2)
                     {
-                        Console.WriteLine("Prova para Adminsitraçao agendada"); break;
+                        Console.WriteLine(name +", Prova para Adminsitraçao agendada"); break;
                     }
                     else if (MenuCursos == 3)
                     {
-                        Console.WriteLine("Prova para Design Gráfico agendada"); break;
+                        Console.WriteLine(name +", Prova para Design Gráfico agendada"); break;
                     }
                     else if (MenuCursos == 4)
                     {
-                        Console.WriteLine("Prova para Mecãnica agendada"); break;
+                        Console.WriteLine(name +", Prova para Mecãnica agendada"); break;
                     }
                     else if (MenuCursos == 9)
                     {
@@ -118,7 +119,7 @@ class Program {
                 }
 
                 
-            }
+            
 
 
         }
