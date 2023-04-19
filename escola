@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_Teste
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int[] n = new int[3]; //Criar vetor de 0 a 3
+            int MenuAluno, MenuCursos, MenuPrincipal, idade;
+            double media;
+            string matricula, v, name, turma;
+           
+
+
+            Console.Write("Digite seu nome: ");
+            name = Console.ReadLine();
+            Console.Clear();
+            Console.Write("Digite sua idade");
+            idade = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.Write("Já é matriculado?");
+            Console.Write("Digite sim ou não:");
+            matricula = (Console.ReadLine();
+            Console.Clear();
+            v = "Sim";
+            if (matricula = v)
+            {
+                Console.WriteLine("Digite sua turma: ")
+            }
+
+            Console.WriteLine("********MENU********");
+            Console.WriteLine("1 - Cursos");
+            Console.WriteLine("2 - Area do aluno");
+            Console.WriteLine("3 - Suporte Técnico");
+            Console.WriteLine("9 - Sair");
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Selecione uma opção: ");
+            MenuPrincipal = int.Parse(Console.ReadLine());
+            Console.Clear();
+
+            while (MenuPrincipal != 9)
+            {
+                if (MenuPrincipal == 1)
+                {
+                    Console.WriteLine("--Cursos Disponíveis--");
+                    Console.WriteLine("1 - Técnico em Informática");
+                    Console.WriteLine("2 - Administração");
+                    Console.WriteLine("3 - Design Gráfico");
+                    Console.WriteLine("4 - Mecânica");
+                    Console.WriteLine("9 - Sair");
+                    Console.WriteLine("Selecione um curso: ");
+                    MenuCursos = int.Parse(Console.ReadLine());
+                    Console.Clear();
+
+                    if (MenuCursos == 1)
+                    {
+                        Console.WriteLine("Prova para Técnico em Informática agendada"); break;
+                    }
+                    else if (MenuCursos == 2)
+                    {
+                        Console.WriteLine("Prova para Adminsitraçao agendada"); break;
+                    }
+                    else if (MenuCursos == 3)
+                    {
+                        Console.WriteLine("Prova para Design Gráfico agendada"); break;
+                    }
+                    else if (MenuCursos == 4)
+                    {
+                        Console.WriteLine("Prova para Mecãnica agendada"); break;
+                    }
+                    else if (MenuCursos == 9)
+                    {
+                        Console.WriteLine("Obrigado por utilizar nosso sistema!"); break;
+                    }
+                }
+
+                if (MenuPrincipal == 2)
+                {
+                    Console.WriteLine("--Area do Aluno--");
+                    Console.WriteLine("1 - Meu curso");
+                    Console.WriteLine("2 - Calcular média");
+                    Console.WriteLine("3 - Cancelar matrícula");
+                    Console.WriteLine("9 - Sair");
+                    Console.WriteLine("-------------------------");
+                    Console.WriteLine("Selecione uma opção");
+                    MenuAluno = int.Parse(Console.ReadLine());
+                    Console.Clear();
+
+                    if(MenuAluno == 1) 
+                    {
+                        Console.WriteLine("");
+                    }
+
+                }
+
+                
+            }
+
+
+        }
+    }
+}
