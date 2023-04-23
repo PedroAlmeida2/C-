@@ -1,18 +1,31 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class Program {
-  public static void Main (string[] args)
-  {
-
-            int[] n = new int[3]; //Criar vetor de 0 a 3
-            int CursoMatricula, MenuAluno, MenuCursos, MenuPrincipal, idade;
+namespace ProjetoCurso
+{
+    internal class Program
+    {
+         private static void Main(string[] args)
+        {
+            DateTime DataAtual = DateTime.Today;
+            TimeSpan HoraAtual = DateTime.Now.TimeOfDay; 
+            //Criar variável para data atual e hora atual.
+            int n0, n1, n2, n3;
+            //cria um array de inteiros com 3 elementos e o inicializa com zeros.
+            //O array é usado para armazenar números que serão usados para calcular a média.
+            int CancelarMatricula = 0, CursoMatricula = 0, MenuCursos = 0, MenuAluno, MenuPrincipal, idade;
             double media;
-            string matricula, v, name, turma;         
+            string matricula, v, f, name, turma = "x", CancelarTurma = "z";
             string c0 = "Técnico em Informática";
             string c1 = "Administração";
             string c2 = "Design Gráfico";
             string c3 = "Mecânica";
             string c4 = "Obrigado por utilizar nosso sistema!";
+            //Aqui são definidas várias variáveis usadas ao longo do programa,
+            //incluindo a escolha do curso, as opções do menu e as informações do aluno.
 
             Console.WriteLine("Digite seu nome: ");
             name = Console.ReadLine();
@@ -25,12 +38,9 @@ class Program {
             matricula = (Console.ReadLine());
             Console.Clear();
             v = "sim";
+            f = "não";
             if (matricula == v)
             {
-                Console.WriteLine("Digite sua turma: ");
-                turma = Console.ReadLine();
-                Console.Clear();
-                
                 Console.WriteLine("1 - Técnico em Informática");
                 Console.WriteLine("2 - Administração");
                 Console.WriteLine("3 - Design Gráfico");
@@ -39,13 +49,23 @@ class Program {
                 Console.WriteLine("Selecione qual curso está matriculado");
                 CursoMatricula = int.Parse(Console.ReadLine());
                 Console.Clear();
-                
-                    if (CursoMatricula == 9)
-                    {       
-                        Console.Clear();
-                        Console.WriteLine(c4);return;
-                    }
-              }
+
+                Console.WriteLine("Digite sua turma: ");
+                turma = Console.ReadLine();
+                Console.Clear();
+
+                if (CursoMatricula == 9)
+                {
+                    
+                    Console.WriteLine(c4);
+                }
+            }
+            //Nesta parte do código, são solicitadas informações do aluno, como nome, idade e se ele já é matriculado em
+            //algum curso. Se o aluno for matriculado, ele deve escolher o curso e a turma em que está matriculado.
+            MenuPrincipal = 0;
+            while (MenuPrincipal != 9)
+            {
+                Console.Clear();
                 Console.WriteLine("********MENU********");
                 Console.WriteLine("1 - Cursos");
                 Console.WriteLine("2 - Area do aluno");
@@ -56,10 +76,8 @@ class Program {
                 MenuPrincipal = int.Parse(Console.ReadLine());
                 Console.Clear();
 
-                while (MenuPrincipal != 9)
+                if (MenuPrincipal == 1)
                 {
-                    if (MenuPrincipal == 1)
-                    {
                     Console.WriteLine("--Cursos Disponíveis--");
                     Console.WriteLine("1 - Técnico em Informática");
                     Console.WriteLine("2 - Administração");
@@ -72,55 +90,229 @@ class Program {
 
                     if (matricula == v)
                     {
-                      if (CursoMatricula == 1)
-                      Console.Clear();
-                      Console.WriteLine(name +", Você já está matriculado em um curso");break;
-                    }  
-                  
+                        if (CursoMatricula == 1)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(name + ", Você já está matriculado no curso de " + c0);
+                            Console.WriteLine("Aperte qualquer tecla para continuar");
+                            Console.ReadKey();
+                        }
+                        else if(CursoMatricula == 2)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(name + ", Você já está matriculado no curso de " + c1);
+                            Console.WriteLine("Aperte qualquer tecla para continuar");
+                            Console.ReadKey();
+                        }
+                        else if (CursoMatricula == 3)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(name + ", Você já está matriculado no curso de " + c2);
+                            Console.WriteLine("Aperte qualquer tecla para continuar");
+                            Console.ReadKey();
+                        }
+                        else if (CursoMatricula == 4)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(name + ", Você já está matriculado no curso de " + c3);
+                            Console.WriteLine("Aperte qualquer tecla para continuar");
+                            Console.ReadKey();
+                        }
+                    }
+
                     else if (MenuCursos == 1)
                     {
-                        Console.WriteLine(name +", Prova para Técnico em Informática agendada"); break;
+                        Console.WriteLine(name + ", prova para " + c0 + " agendada.");
+                        Console.WriteLine("Aperte qualquer tecla para continuar");
+                        Console.ReadKey();
                     }
                     else if (MenuCursos == 2)
                     {
-                        Console.WriteLine(name +", Prova para Adminsitraçao agendada"); break;
+                        Console.WriteLine(name + ", prova para " + c1 + " agendada.");
+                        Console.WriteLine("Aperte qualquer tecla para continuar");
+                        Console.ReadKey();
                     }
                     else if (MenuCursos == 3)
                     {
-                        Console.WriteLine(name +", Prova para Design Gráfico agendada"); break;
+                        Console.WriteLine(name + ", prova para " + c2 + " agendada.");
+                        Console.WriteLine("Aperte qualquer tecla para continuar");
+                        Console.ReadKey();
                     }
                     else if (MenuCursos == 4)
                     {
-                        Console.WriteLine(name +", Prova para Mecãnica agendada"); break;
+                        Console.WriteLine(name + ", prova para " + c3 + " agendada.");
+                        Console.WriteLine("Aperte qualquer tecla para continuar");
+                        Console.ReadKey();
                     }
                     else if (MenuCursos == 9)
                     {
-                        Console.WriteLine("Obrigado por utilizar nosso sistema!"); break;
+                        Console.WriteLine("Obrigado por utilizar nosso sistema!");
+                        Console.WriteLine("Aperte qualquer tecla para sair");
+                        Console.ReadKey();
                     }
                 }
 
                 if (MenuPrincipal == 2)
                 {
-                    Console.WriteLine("--Area do Aluno--");
-                    Console.WriteLine("1 - Meu curso");
-                    Console.WriteLine("2 - Calcular média");
-                    Console.WriteLine("3 - Cancelar matrícula");
-                    Console.WriteLine("9 - Sair");
-                    Console.WriteLine("-------------------------");
-                    Console.WriteLine("Selecione uma opção");
-                    MenuAluno = int.Parse(Console.ReadLine());
-                    Console.Clear();
-
-                    if(MenuAluno == 1) 
+                    MenuAluno = 0;
+                    while (MenuAluno != 9)
                     {
-                        Console.WriteLine("");
+                        Console.Clear();
+                        Console.WriteLine("--Area do Aluno--");
+                        Console.WriteLine("1 - Meu curso");
+                        Console.WriteLine("2 - Calcular média");
+                        Console.WriteLine("3 - Cancelar matrícula");
+                        Console.WriteLine("9 - Sair");
+                        Console.WriteLine("-------------------------");
+                        Console.WriteLine("Selecione uma opção");
+                        MenuAluno = int.Parse(Console.ReadLine());
+                        Console.Clear();
+
+                        if (MenuAluno == 1)
+                        {
+                            if (matricula == v)
+                            {
+                                if (CursoMatricula == 1)
+                                {
+                                    Console.WriteLine("*****Bem-Vindo " + name + "!!!*****");
+                                    Console.WriteLine("Você está matriculado no curso de " + c0);
+                                    Console.WriteLine("Matricula realizada na data: " + DataAtual);
+                                    Console.ReadKey();
+                                }
+                                else if (CursoMatricula == 2)
+                                {
+                                    Console.WriteLine("*****Bem-Vindo " + name + "!!!*****");
+                                    Console.WriteLine("Você está matriculado no curso de " + c1);
+                                    Console.WriteLine("Matricula realizada na data: " + DataAtual);
+                                    Console.ReadKey();
+                                }
+                                else if (CursoMatricula == 3)
+                                {
+                                    Console.WriteLine("*****Bem-Vindo " + name + "!!!*****");
+                                    Console.WriteLine("Você está matriculado no curso de " + c2);
+                                    Console.WriteLine("Matricula realizada na data: " + DataAtual);
+                                    Console.ReadKey();
+                                }
+                                else if (CursoMatricula == 4)
+                                {
+                                    Console.WriteLine("*****Bem-Vindo " + name + "!!!*****");
+                                    Console.WriteLine("Você está matriculado no curso de " + c3);
+                                    Console.WriteLine("Matricula realizada na data: " + DataAtual);
+                                    Console.ReadKey();
+                                }
+                            }
+                            if (matricula == f)
+                            {
+                                if (MenuCursos == 1)
+                                {
+                                    Console.WriteLine("Você tem uma prova agendada para " + c0);
+                                    Console.WriteLine("Data: 15/06/2023");
+                                    Console.ReadKey();
+                                }
+                                if (MenuCursos == 2)
+                                {
+                                    Console.WriteLine("Você tem uma prova agendada para " + c1);
+                                    Console.WriteLine("Data: 08/07/2023");
+                                    Console.ReadKey();
+                                }
+                                if (MenuCursos == 3)
+                                {
+                                    Console.WriteLine("Você tem uma prova agendada para " + c2);
+                                    Console.WriteLine("Data: 19/05/2023");
+                                    Console.ReadKey();
+                                }
+                                if (MenuCursos == 4)
+                                {
+                                    Console.WriteLine("Você tem uma prova agendada para " + c3);
+                                    Console.WriteLine("Data: 28/09/2023");
+                                    Console.ReadKey();
+                                }
+                            }
+
+                        }
+                        else if (MenuAluno == 2)
+                        {
+                            Console.WriteLine("****Calcular Média de Notas****");
+                            Console.WriteLine("Digite sua primeira nota:");
+                            n0 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite sua segunda nota:");
+                            n1 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite sua terçeira nota");
+                            n2 = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Digite sua quarta nota:");
+                            n3 = int.Parse(Console.ReadLine());
+
+                            media = (n0 + n1 + n2 + n3) / 4;
+                            Console.Clear();
+                            Console.WriteLine("Sua média final é: " + media);
+                            Console.ReadKey();
+                        }
+                        else if (MenuAluno == 3)
+                        {
+                            if (matricula == v)
+                            {
+                                Console.WriteLine("Escola seu curso: ");
+                                Console.WriteLine("1 - Técnico em Informática");
+                                Console.WriteLine("2 - Administração");
+                                Console.WriteLine("3 - Design Gráfico");
+                                Console.WriteLine("4 - Mecânica");
+                                CancelarMatricula = int.Parse(Console.ReadLine());
+                                Console.Clear();
+                                Console.WriteLine("Digite sua turma: ");
+                                CancelarTurma = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            if (CancelarMatricula == CursoMatricula && CancelarTurma == turma)
+                            {
+                                if (CursoMatricula == 1)
+                                {
+                                    Console.WriteLine("Aluno: " + name);
+                                    Console.WriteLine("Curso: " + c0);
+                                    Console.WriteLine("Turma: " + turma);
+                                    Console.WriteLine("MATRICULA CANCELADA.");
+                                    Console.WriteLine("Aperte qualquer tecla para voltar");
+                                    Console.ReadKey();
+                                }
+                                if (CursoMatricula == 2)
+                                {
+                                    Console.WriteLine("Aluno: " + name);
+                                    Console.WriteLine("Curso: " + c1);
+                                    Console.WriteLine("Turma: " + turma);
+                                    Console.WriteLine("MATRICULA CANCELADA.");
+                                    Console.WriteLine("Aperte qualquer tecla para voltar");
+                                    Console.ReadKey();
+                                }
+                                if (CursoMatricula == 3)
+                                {
+                                    Console.WriteLine("Aluno: " + name);
+                                    Console.WriteLine("Curso: " + c2);
+                                    Console.WriteLine("Turma: " + turma);
+                                    Console.WriteLine("MATRICULA CANCELADA.");
+                                    Console.WriteLine("Aperte qualquer tecla para voltar");
+                                    Console.ReadKey();
+                                }
+                                if (CursoMatricula == 4)
+                                {
+                                    Console.WriteLine("Aluno: " + name);
+                                    Console.WriteLine("Curso: " + c3);
+                                    Console.WriteLine("Turma: " + turma);
+                                    Console.WriteLine("MATRICULA CANCELADA.");
+                                    Console.WriteLine("Aperte qualquer tecla para voltar");
+                                    Console.ReadKey();
+                                }
+                            }
+
+                        }
                     }
-
                 }
-
-                
-            
-
-
+                if (MenuPrincipal == 3)
+                {
+                    Console.WriteLine("E-mail suporte: suporte.curso@walsoft.com.br");
+                    Console.WriteLine("Telefone: +55 (11) 3459-0092");
+                    Console.WriteLine("Aperte qualquer tecla para voltar");
+                    Console.ReadKey();
+                }
+            }
         }
-    }}
+    }
+}
